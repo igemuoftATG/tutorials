@@ -7,21 +7,22 @@ Write a program called `craps.py` that implements the craps game. The program sh
 
 Example with a 'point'
 
-'''
-Roll #1: [2][6] ==> 'point' is 8 <br>
-Roll #2: [4][1] ==> keep going! <br>
-Roll #3: [5][6] ==> keep going! <br>
-Roll #4: [3][3] ==> keep going! <br>
-Roll #5: [3][4] ==> LOSS! <br>
-'''
+```
+Roll #1: [2][6] ==> 'point' is 8
+Roll #2: [4][1] ==> keep going!
+Roll #3: [5][6] ==> keep going!
+Roll #4: [3][3] ==> keep going!
+Roll #5: [3][4] ==> LOSS!
+```
 
 Example of a straight win:
 
-'''
+```
 Roll #1: [4][7] ==> WIN!
-'''
+```
 
 Example of a straight loss:
-'''
+
+```
 Roll #1: [2][1] ==> LOSS!
-'''
+```
