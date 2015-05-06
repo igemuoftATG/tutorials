@@ -4,6 +4,11 @@ A really simple and exciting game at the casino is craps. The basic "play" is as
 
 Write a program called `craps.py` that implements the craps game. The program should allow the user to repeatedly play until they decide to quit. How this part of the interaction takes place is up to you. You should show the entire process of how they got to a win or loss as output based on the examples below.
 
+Some tips:
+```
+Import random
+input('Input something: ')
+```
 
 Example with a 'point'
 
