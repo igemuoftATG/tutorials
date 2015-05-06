@@ -10,3 +10,7 @@ Learn fundamental functional programming features of JavaScript in vanilla ES5.
 
 Understanding JavaScript Prototypes
 * [https://github.com/sporto/planetproto](https://github.com/sporto/planetproto)
+
+## *More bioinformatics oriented*
+JavaScript (node + browser) bioinformatics library for nucleotide sequence manipulation and analysis
+* [https://github.com/keithwhor/NtSeq](https://github.com/keithwhor/NtSeq)

@@ -11,3 +11,7 @@ Learn how to use and create npm modules.
 
 Learn to compose streaming interfaces with `.pipe()`
 * [https://www.github.com/substack/stream-adventure](https://www.github.com/substack/stream-adventure)
+
+## *More bioinformatics oriented*
+JavaScript (node + browser) bioinformatics library for nucleotide sequence manipulation and analysis
+* [https://github.com/keithwhor/NtSeq](https://github.com/keithwhor/NtSeq)
