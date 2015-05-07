@@ -1,0 +1,83 @@
+You will write a program called text_circle.py that creates a drawing of a
+'circle' using special characters which are 'shade' characters. First, you will
+ask the user to enter an integer diameter for the circle. Your code should not
+continue to the drawing until the user has entered a positive odd number for the
+diameter. You will then create a square 'grid' that has a height and a width of
+the diameter of the circle. To draw this you will loop through every position in
+the grid and determine how far that 'point' is from the center of the circle
+(hint use distance formula ((x1-x2)^2 + (y1-y2)^2)^{0.5} from Pythagoras' theorem).
+Based on how far the grid position is from the
+center, you will put a pair of the appropriate shade character. The center point
+of the circle will be blank. The ring within 30% of the radius from the center
+will be black. The ring beyond that but within 65% of the radius will be dark
+grey. The next ring beyond that but within 0.5 units more than the radius will
+be grey. The area of the grid that is outside the circle will simply be blank.
+There will be no light grey, but it is shown in the table for completeness. You
+can use the escape sequences shown in the table to generate the special
+characters. The circle will have a border places around its entirety (using '-'
+and '|' characters). Below the picture, output the approximate percentage of the
+area of each shade in the circle based on the percentage of actual characters
+displayed (ignoring the fact each one is a 'pair'), not based on actual circle
+area calculation. Use the sample output as a model how yours should look
+(including the area, the quotes, and 1-decimal percentages). You should output
+the entire picture and percentages in a singly executed output statement.
+
+
+
+
+Blank		' ' 		
+Lightgrey	'\u2591'	░
+Grey 		'\u2592'	▒
+Darkgrey 	'\u2593'	▓
+Black 		'\u2588'	█
+
+
+For 17
+                                  
+                                  
+                                  
+              ▓▓▓▓▓▓              
+          ▓▓▓▓▓▓▓▓▓▓▓▓▓▓          
+        ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓        
+        ▓▓▓▓▓▓██████▓▓▓▓▓▓        
+      ▓▓▓▓▓▓██████████▓▓▓▓▓▓      
+      ▓▓▓▓▓▓████  ████▓▓▓▓▓▓      
+      ▓▓▓▓▓▓██████████▓▓▓▓▓▓      
+        ▓▓▓▓▓▓██████▓▓▓▓▓▓        
+        ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓        
+          ▓▓▓▓▓▓▓▓▓▓▓▓▓▓          
+              ▓▓▓▓▓▓              
+                                  
+                                  
+                                  
+For 13
+                          
+                          
+                          
+        ▓▓▓▓▓▓▓▓▓▓        
+      ▓▓▓▓▓▓▓▓▓▓▓▓▓▓      
+      ▓▓▓▓██████▓▓▓▓      
+      ▓▓▓▓██  ██▓▓▓▓      
+      ▓▓▓▓██████▓▓▓▓      
+      ▓▓▓▓▓▓▓▓▓▓▓▓▓▓      
+        ▓▓▓▓▓▓▓▓▓▓        
+                          
+                          
+For 21
+                                          
+                                          
+                                          
+                                          
+                ▓▓▓▓▓▓▓▓▓▓                
+            ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓            
+          ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓          
+          ▓▓▓▓▓▓▓▓▓▓██▓▓▓▓▓▓▓▓▓▓          
+        ▓▓▓▓▓▓▓▓██████████▓▓▓▓▓▓▓▓        
+        ▓▓▓▓▓▓▓▓██████████▓▓▓▓▓▓▓▓        
+        ▓▓▓▓▓▓██████  ██████▓▓▓▓▓▓        
+        ▓▓▓▓▓▓▓▓██████████▓▓▓▓▓▓▓▓        
+        ▓▓▓▓▓▓▓▓██████████▓▓▓▓▓▓▓▓        
+          ▓▓▓▓▓▓▓▓▓▓██▓▓▓▓▓▓▓▓▓▓          
+          ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓          
+            ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓            
+                ▓▓▓▓▓▓▓▓▓▓                                          
