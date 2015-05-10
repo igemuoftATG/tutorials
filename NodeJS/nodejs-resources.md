@@ -8,7 +8,13 @@ Learn the basics of node: asynchronous i/o, http.
 
 You may find [this](http://howtonode.org/control-flow) and 
 [this](https://github.com/nodeschool/discussions/issues/203) useful for the
-juggling async challenge.
+juggling async challenge. Also, this may come in handy:
+```
+var foo = [] // or new Array();
+foo[5] = 'five';
+console.log(foo); // [ , , , , , 'five' ]
+```
+I know, right!?
 
 Learn how to use and create npm modules.
 * [https://github.com/npm/how-to-npm](https://github.com/npm/how-to-npm)
