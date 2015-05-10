@@ -1,6 +1,6 @@
 # DNA
 
-<<<<<<< HEAD
+
 You will create a program called sequence.py. This program will open a text file
 called DNA.txt and will output the corresponding RNA sequence and Amino Acid
 sequence. To transcribe the RNA sequence, simply replace all Ts with Us. To then
