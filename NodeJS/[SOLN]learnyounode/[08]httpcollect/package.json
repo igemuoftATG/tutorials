@@ -1,0 +1,14 @@
+{
+  "name": "httpcollect",
+  "version": "1.0.0",
+  "description": "challenge from learnyounode",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bl": "^0.9.4"
+  }
+}
