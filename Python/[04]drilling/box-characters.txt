@@ -1,0 +1,7 @@
+Use these characters to draw your grid.
+Remember, do
+print("foo", end="")
+to prevent a newline added after every print statement.
+
+box = '▢'
+fBox = '■'
