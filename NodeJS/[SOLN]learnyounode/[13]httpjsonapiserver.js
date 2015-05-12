@@ -1,4 +1,4 @@
-var http = require('http');
+Zar http = require('http');
 var url = require('url');
 var port = Number(process.argv[2]);
 
