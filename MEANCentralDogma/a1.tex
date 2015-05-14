@@ -1,0 +1,146 @@
+\input{tex/preamble}
+\graphicspath{ {./figures/} }
+
+
+\title{%
+    \begin{center} \includegraphics[width=150pt]{dna} \end{center}
+    A1: \textit{The MEAN Central Dogma}}
+\author{Julian Mazzitelli, \textit{iGEM UofT} 
+}
+\date{May 14, 2015 \\ \vspace{5pt}
+{\small Due: May 20, 2015 or May 22, 2015, or \textit{anytime thereafter} }}
+
+\hypersetup{
+    colorlinks=true,
+    urlcolor=TealBlue
+}
+
+% hrefs
+\def\AngularJS{\href{https://angularjs.org/}{AngularJS}}
+\def\RESTful{\href{http://en.wikipedia.org/wiki/Representational_state_transfer}{RESTful}}
+\def\NodeJS{\href{https://nodejs.org/}{Node.js}}
+\def\ExpressJS{\href{http://expressjs.com/}{Express}}
+\def\API{\href{http://en.wikipedia.org/wiki/Application_programming_interface}{API}}
+\def\MongoDB{\href{https://www.mongodb.org/}{MongoDB}}
+\def\SPA{\href{http://en.wikipedia.org/wiki/Single-page_application}{SPA}}
+\def\centraldogma{\href{http://en.wikipedia.org/wiki/Central_dogma_of_molecular_biology}{central dogma}}
+\def\pythondna{\href{https://github.com/igemuoftATG/tutorials/tree/master/Python/\%5B03\%5DDNA!}{Python DNA!}}
+\def\javascripting{\href{https://github.com/sethvincent/javascripting}{javascripting}}
+\def\learnyounode{\href{https://github.com/workshopper/learnyounode}{learnyounode}}
+\def\expressworks{\href{https://github.com/azat-co/expressworks}{expressworks}}
+
+\begin{document}
+\reversemarginpar
+
+\maketitle
+
+\section{Introduction}
+
+This assignment will be an introduction to the modern full-stack web
+application while also promoting an improved understanding of the transfer of
+information within biological systems. You will build a single page application
+(\SPA) with \AngularJS\ which communicates with a \RESTful\ \NodeJS\
+(\ExpressJS) \textit{application programming interface} (\API) and stores data
+on a \MongoDB\ database. This is the MEAN stack:
+
+\begin{center}
+    MongoDB $\leftrightarrow$ Node.js (Express) $\leftrightarrow$ AngularJS
+\end{center} 
+
+Moreover, you will write code in more than one language,
+interact with a number of frameworks/APIs, make a new best friend
+(documentation!), and consider the viability of your chosen data structures and
+algorithms for a given problem. 
+
+Your API will be capable of manipulating data forwards and backwards
+between each stage of biological information flow.  You will not know what
+format the incoming data is, and will have to decide which conversion to use.
+That is, given DNA, RNA, or a polypeptide sequence, you must convert to each
+of the other two.  Ultimately, you will describe the \centraldogma\ of molecular
+biology:
+
+\input{tex/centraldogma}
+
+\mpnote
+
+\noindent We will not consider DNA/DNA, RNA/RNA, or \textbf{protein/DNA}
+interactions in this assignment. Though you should realize the \textbf{crucial} 
+implications of positive/negative regulation of DNA expression through
+protein/DNA interactions.\\
+
+\mymarginpar{\textit{Prerequisites}}
+
+\noindent You \textbf{must} complete our \pythondna\ assignment before starting
+this. You will call your python script from the back-end. You should also
+have completed \javascripting,  \learnyounode, and \expressworks. If you have
+trouble completing the DNA! assignment, consider trying out codecademy's 
+\href{http://www.codecademy.com/en/tracks/python}{Python tutorial}.
+
+\section{Environment}
+
+It is necessary you have a proper development environment set up before 
+beginning this assignment. You will need Python 3, Node.js and MongoDB. Your npm
+version should be up to date (Node.js comes with npm 2.7.4 but the latest is
+2.9.something). Upgrading npm can be achieved with \\
+
+\noindent \texttt{\$ npm install -g npm} \\
+
+If the previous does not upgrade your npm, it is most likely that you are
+on Windows and the path to Node.js occurs before the path to node\_modules
+between your PATH and path environment variables (PATH loaded first). 
+Once npm is up to date, you can install a few other global modules
+which you will be using:
+
+\begin{verbatim}
+$ npm install -g yo bower grunt-cli gulp
+\end{verbatim}
+
+If you have issues starting a
+local MongoDB service, again, you are probably on Windows and what you need to
+do is 
+
+\begin{verbatim}
+$ mkdir C:\data\db    
+\end{verbatim}
+
+and run (while you start \texttt{mongo} in another terminal) 
+
+\begin{verbatim}
+$ mongodb -dbpath C:\data\db  
+\end{verbatim}
+If you have any issues getting set up, Google is your friend. 
+
+\section{Requirements}
+
+Your app must:
+\begin{itemize}
+    \item use a Python script to convert DNA $\rightarrow$ protein
+    \item use JavaScript to convert protein $\rightarrow$ DNA
+    \item accept data at endpoints of your choice
+    \item provide endpoints to retreive data from database
+    \item use unit testing with Mocha
+    \item store converted data in the database 
+\end{itemize}
+
+\section{Boilerplates}
+
+You may find the following boilerplate generators useful.
+
+\noindent The generator made by the Express team: \\
+\texttt{\$ npm install -g express-generator} \\ 
+A port of the above to yeoman: \\
+\texttt{\$ npm insall -g generator-express} \\
+A popular MEAN boilerplate: \\
+\texttt{\$ npm install -g generator-angular-fullstack} \\
+mean.io's generator \\
+\texttt{\$ npm install -g mean-cli} \\
+A front-end only AngularJS generator \\
+\texttt{\$ npm install -g generator-gulp-angular}
+
+
+
+
+
+
+
+\end{document}
