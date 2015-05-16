@@ -36,28 +36,26 @@
 
 \section{Introduction}
 
-This assignment will be an introduction to the modern full-stack web
-application while also promoting an improved understanding of the transfer of
-information within biological systems. You will build a single page application
-(\SPA) with \AngularJS\ which communicates with a \RESTful\ \NodeJS\
-(\ExpressJS) \textit{application programming interface} (\API) and stores data
-on a \MongoDB\ database. This is the MEAN stack:
+This assignment will be an introduction to the modern full-stack web application
+while also promoting an improved understanding of the transfer of information
+within biological systems. You will build a single page application (\SPA) with
+\AngularJS\ which communicates with a \RESTful\ \NodeJS\ (\ExpressJS)
+\textit{application programming interface} (\API) and stores data on a \MongoDB\
+database. This is the MEAN stack:
 
 \begin{center}
     MongoDB $\leftrightarrow$ Node.js (Express) $\leftrightarrow$ AngularJS
 \end{center} 
 
-Moreover, you will write code in more than one language,
-interact with a number of frameworks/APIs, make a new best friend
-(documentation!), and consider the viability of your chosen data structures and
-algorithms for a given problem. 
+Moreover, you will write code in more than one language, interact with a number
+of frameworks/APIs, make a new best friend (documentation!), and consider the
+viability of your chosen data structures and algorithms for a given problem. 
 
-Your API will be capable of manipulating data forwards and backwards
-between each stage of biological information flow.  You will not know what
-format the incoming data is, and will have to decide which conversion to use.
-That is, given DNA, RNA, or a polypeptide sequence, you must convert to each
-of the other two.  Ultimately, you will describe the \centraldogma\ of molecular
-biology:
+Your API will be capable of manipulating data forwards and backwards between
+each stage of biological information flow.  You will not know what format the
+incoming data is, and will have to decide which conversion to use.  That is,
+given DNA, RNA, or a polypeptide sequence, you must convert to each of the other
+two.  Ultimately, you will describe the \centraldogma\ of molecular biology:
 
 \input{tex/centraldogma}
 
@@ -78,26 +76,24 @@ trouble completing the DNA! assignment, consider trying out codecademy's
 
 \section{Environment}
 
-It is necessary you have a proper development environment set up before 
+It is necessary you have a proper development environment set up before
 beginning this assignment. You will need Python 3, Node.js and MongoDB. Your npm
 version should be up to date (Node.js comes with npm 2.7.4 but the latest is
 2.9.something). Upgrading npm can be achieved with \\
 
 \noindent \texttt{\$ npm install -g npm} \\
 
-If the previous does not upgrade your npm, it is most likely that you are
-on Windows and the path to Node.js occurs before the path to node\_modules
-between your PATH and path environment variables (PATH loaded first). 
-Once npm is up to date, you can install a few other global modules
-which you will be using:
+If the previous does not upgrade your npm, it is most likely that you are on
+Windows and the path to Node.js occurs before the path to node\_modules between
+your PATH and path environment variables (PATH loaded first).  Once npm is up to
+date, you can install a few other global modules which you will be using:
 
 \begin{verbatim}
 $ npm install -g yo bower grunt-cli gulp
 \end{verbatim}
 
-If you have issues starting a
-local MongoDB service, again, you are probably on Windows and what you need to
-do is 
+If you have issues starting a local MongoDB service, again, you are probably on
+Windows and what you need to do is 
 
 \begin{verbatim}
 $ mkdir C:\data\db    
@@ -136,6 +132,23 @@ mean.io's generator \\
 \texttt{\$ npm install -g mean-cli} \\
 A front-end only AngularJS generator \\
 \texttt{\$ npm install -g generator-gulp-angular}
+
+\section{The MEAN Stack}
+
+The MEAN stack is the acronym given to a full-stack web server using Node.js as
+it's serverside engine, with Express as a framework for Node, using MongoDB for
+a database, and using the frontend framework AngularJS which eases the 
+difficulty of making single page applications. We will go through a quick intro
+to each of these members, but first an understanding of how a web application
+works must be acquired. 
+
+A simple, bare bones website is just an \texttt{html} file, or series of
+\texttt{html} files. HTML stands for \textit{hypertext markup language} and is 
+very simple to understand. Here is a basic \texttt{helloworld.html} webpage:
+
+%\lstlisting{files/html/helloworld.html}
+
+\inputminted{html}{files/html/helloworld.html}
 
 
 
