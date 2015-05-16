@@ -1,2 +1,4 @@
 *.swp
 *.pyg
+tex/*.aux
+_minted-a1

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>a naive randomized DNA sequence</title>
+        <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
+        <style type="text/css">
+            * { margin:0; padding:0; }
+            html, body { height: 100%; }
+            #dna-bg { width:100%; height:100%; overflow:hidden; }
+        </style> 
+    </head>
+    <body>
+        <div id="dna-bg"></div> 
+
+        <!-- <script src="js/main.js"></script> -->
+        <script>
+            var dna = '';
+            for (var i=0; i < 100000; i++) {
+                var r = Math.random();
+                if (r > 0.75) dna += 'A'; 
+                else if (r > 0.5) dna += 'T';
+                else if (r > 0.25) dna += 'C';
+                else dna += 'G';
+                
+                if (i % 1000 === 0 && i > 0) dna += '<br>';
+            }
+            var dnaBg = document.getElementById('dna-bg');
+            dnaBg.innerHTML = dna;
+        </script>
+    </body>
+</html>

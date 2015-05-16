@@ -1,7 +1,6 @@
 \input{tex/preamble}
 \graphicspath{ {./figures/} }
 
-
 \title{%
     \begin{center} \includegraphics[width=150pt]{dna} \end{center}
     A1: \textit{The MEAN Central Dogma}}
@@ -142,6 +141,9 @@ difficulty of making single page applications. We will go through a quick intro
 to each of these members, but first an understanding of how a web application
 works must be acquired. 
 
+
+\subsection{Static HTML}
+
 A simple, bare bones website is just an \texttt{html} file, or series of
 \texttt{html} files. HTML stands for \textit{hypertext markup language} and is 
 very simple to understand. Here is a basic \texttt{helloworld.html} webpage:
@@ -150,10 +152,88 @@ very simple to understand. Here is a basic \texttt{helloworld.html} webpage:
 
 \inputminted{html}{files/html/helloworld.html}
 
+The first line must declare the doctype, and everything else must be contained
+within a \mintinline{html}|<html>| tag. A \mintinline{html}|<tag>| must always
+have its corresponding closing \mintinline{html}|</tag>|. Everything within 
+\mintinline{html}|<head>| is where you declare the title which appears on your
+window, and other things such as stylesheets, JavaScript scripts, favicons, etc.
+All of the content that appears on your webpage will be placed inside the
+\mintinline{html}|<body>| tag. Here is a HTML5 cheatsheet, although the above
+and these are almost all the tags you will ever use:
 
+\begin{minted}{html}
+<h1>...<h6>, <a href="www.igem.skule.ca">iGEM UofT</a>, 
+<a href="./localFile.html">tab 2</a>, <div>"division"</div>, 
+<ul> unordered list </ul>, <ol> ordered list </ol>, <li> list item </li>,
+<img src="logo.png" />
+\end{minted}
 
+Some tags are self closing, like \mintinline{html}|<img>|, but would still work
+as an open/close tag pair. Tags can have one id and multiple space seperated
+classes:
 
+\begin{minted}{html}
+<tag id="myId" class="title active">
+\end{minted}
 
+All that is left to finish this basic intro to a static web page is to mention
+stylesheets and scripts. I will leave this following example:
 
+\inputminted{html}{files/html/DNA.html}
+
+Plain html pages work great for static websites like brochures and restaurant
+menus, but fail at delivering dynamic content. 
+
+\subsection{Server-side processing}
+
+The creation of dynamic web pages such as forums required the development of
+server-side processing. There are many languages which can render html server
+side, among them Python(Django, Flask), .net, PHP and others. PHP has been the
+most popular choice for server side languages until Node came along. PHP stands
+for \textit{Prepocessor Hyptertext: Php}, and it is exacly that. A PHP server
+will render each unique page of html and \textit{then} send it to the client. So
+for example, on a forum, if you click on a thread, the client machine will tell
+the server which thread you want to look at, the server will then loop through
+each post in that thread in the database, compile a complete html page, and send
+it back to you. Visually, the flow is as follows:
+
+\begin{center}
+database $\leftrightarrow$ server $\leftrightarrow$ client
+\end{center}
+
+Node can be used like this as well, to render each page. However in our webapp,
+Node will only act as an API, sending JSONs back and forth on get and post 
+requests. 
+
+\subsection{Node.js}
+
+Node.js is a runtime environment for server-side and networking applications.
+Node had it's first release in 2009. The core functionality of Node was written
+in JavaScript and C++ was used for connecting bindings and the operating system.
+Google's V8 engine, the JS execution engine built for Google Chrome, compiles JS
+into machine code, and is what Node uses to execute code. Previously, JS was
+interpreted in real time; V8 heavily optimized JS.  Before Node, JavaScript
+could only be executed client-side. A big difference between Node and PHP is
+that PHP is a blocking language, while Node is non-blocking, allowing commands
+to execute in parallel and signal completion with a callback.  A simple JSON API
+web server can be generated using Node with several lines:
+
+\inputminted{js}{files/nodejs/hw.js}
+
+Test out this server yourself by running
+
+\begin{verbatim}
+$ node hw.js 9001
+\end{verbatim}
+
+and visiting \texttt{http://localhost:9001/home} and  \texttt{/bye}. For a more
+thorough introduction to Node.js, you are required to complete \learnyounode.
+If you are unfamiliar with JavaScript, you may wish to do \javascripting\ first.
+
+\subsection{Express}
+
+\subsection{MongoDB}
+
+\subsection{AngularJS}
 
 \end{document}
