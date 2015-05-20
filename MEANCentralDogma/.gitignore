@@ -1,4 +1,5 @@
 *.swp
 *.pyg
+node_modules
 tex/*.aux
 _minted-a1

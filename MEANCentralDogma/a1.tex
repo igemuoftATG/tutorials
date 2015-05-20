@@ -7,7 +7,7 @@
 \author{Julian Mazzitelli, \textit{iGEM UofT} 
 }
 \date{May 14, 2015 \\ \vspace{5pt}
-{\small Due: May 20, 2015 or May 22, 2015, or \textit{anytime thereafter} }}
+{\small Due: May 22, 2015 or \textit{anytime thereafter} }}
 
 \hypersetup{
     colorlinks=true,
@@ -109,17 +109,32 @@ If you have any issues getting set up, Google is your friend.
 
 Your app must:
 \begin{itemize}
-    \item use a Python script to convert DNA $\rightarrow$ protein
+    \item use a Python script to convert DNA $\rightarrow$ protein. You can a
+        Python script from your request handler with
+        \href{https://nodejs.org/api/child_process.html}{ChildProcess}.
     \item use JavaScript to convert protein $\rightarrow$ DNA
-    \item accept data at endpoints of your choice
-    \item provide endpoints to retreive data from database
-    \item use unit testing with Mocha
-    \item store converted data in the database 
+    \item define endpoints which can take in data from \texttt{req}, and send
+        back the converted data. Perhaps one endpoint which catches all
+        \texttt{get} requests and then internally sends it \textit{post}
+        endpoints which can accept params defining direction of conversion? It
+        is all up to you. I will be looking for originality, clarity, and
+    practicality.  
+    \item all converted sequences you have worked with should be stored as their
+        DNA, RNA, polypeptide sequence (plus anything else worthwhile!) in a MongoDB
+        database with Mongoose. Provide endpoints to retreive data from the database as
+        well. (just some \texttt{get}s) 
+    \item use unit testing with \href{http://mochajs.org/}{Mocha} 
 \end{itemize}
 
 \section{Boilerplates}
 
-You may find the following boilerplate generators useful.
+You may find the following boilerplate generators useful. Try to reverse
+engineer the boilerplate and understand the flow of routes, models, etc.
+Look up all the \texttt{require} modules online to get an idea of what they
+do. However, in this tutorial we will be building our app \textit{from the
+ground up}. That is, your solution should not be based off of any of these
+boilerplates, but checking them out and playing with their code is definitely
+recommended. \\
 
 \noindent The generator made by the Express team: \\
 \texttt{\$ npm install -g express-generator} \\ 
@@ -232,8 +247,101 @@ If you are unfamiliar with JavaScript, you may wish to do \javascripting\ first.
 
 \subsection{Express}
 
+\ExpressJS\ is a ``fast, unopiniated, minimalist web framework for Node.js''
+Essentially, Express provides an API for working with Node that makes
+\textit{everything a lot easier}. Consider the Express implementation of the 
+example above:
+
+\inputminted{js}{files/express/hw.js}
+
+As you can see, there is less code than the pure Node example, and the semantics
+are more readable. But Express does more than just that, you can set up 
+\textit{middleware} very easily, which is essentially and function in the
+\textit{``middleware stack''} which can intercept the process of a \textit{route},
+for example, like \texttt{'/home'}. Middleware can modify the request and response
+objects and if they do not end the response, must call \mintinline{js}{next()}. 
+It is required reading for this assignment to read:
+
+\begin{itemize}
+    \item \href{http://expressjs.com/starter/basic-routing.html}{Basic Routing Tutorial}
+    \item \href{http://expressjs.com/guide/routing.html}{Routing}
+    \item \href{http://expressjs.com/guide/using-middleware.html}{Using middleware}
+\end{itemize}
+
+All of which can easily be found from the Express site. In fact, I highly recommended
+cloning the \href{https://github.com/strongloop/express}{GitHub repo for Express}.
+That way you can open up some example files on your own computer, and test them out on
+localhost. Specifically, I recommend taking a look at the \textit{routing} examples, shown
+on the Express \href{http://expressjs.com/starter/faq.html}{FAQ} under ``How should I structure
+my application?'' Which method do like best? Which do you think is more organized? Easier to 
+understand?
+
 \subsection{MongoDB}
 
+From Wikipedia:
+
+\begin{tabular}{p{0.9\textwidth}} 
+    MongoDB (from humongous) is a cross-platform \href{http://en.wikipedia.org/wiki/Document-oriented_database}{document-oriented database}.
+    Classified as a \href{http://en.wikipedia.org/wiki/NoSQL}{NoSQL} database, 
+    MongoDB eschews the traditional table-based relational database structure 
+    in favor of \href{http://en.wikipedia.org/wiki/JSON}{JSON}-like documents 
+    with dynamic \href{http://en.wikipedia.org/wiki/Database_schema}{schemas} 
+    (MongoDB calls the format \href{http://en.wikipedia.org/wiki/BSON}{BSON}).
+\end{tabular}\\
+
+Once you install MongoDB, run it from your terminal with \texttt{\$ mongo}, and
+call \texttt{help()} and  \texttt{db.help()} and  \texttt{db.mycol.help()} for
+help on general methods, database methods, and collection methods, respectively.
+
+There used to be a really awesome web pseudo-shell interface which ran you
+through a 15min tutorial of MongoDB. But I can't find it, maybe they got rid of
+it (perhaps used deprecated methods and they didn't bother making a new one).
+In the mean time you can check out the \href{http://docs.mongodb.org/manual/}{MongoDB manual}
+and I'll try to write a neat mini-tutorial soon. But the basics to understand
+are that a \textit{database} is made of a bunch of \textit{collections} which 
+are just an array of \textit{documents} following a specific  \textit{schema}.
+Try to find out how make a new database, collection, and documents from the
+\texttt{mongo} command line interface. 
+
 \subsection{AngularJS}
+
+\noindent Ahhh, AngularJS. Ahhhh, frontend JavaScript frameworks. Welcome to the
+land of no return. Where plenty abound. An no one knows which is best. Oh and
+by the way, the new framework just mastered, version 2.0 is out now and that
+means there is no guarentte 1.0 API calls will be supported (i.e. some got
+deprecated). Well you need to choose one. We will be going with AngularJS since
+it seems to be the most popular right now.
+
+AngularJS eases the process of setting up frontend routes and controllers for
+templates. You can define a wrapper template, a header template, a navbar
+template, and a view template. That way when you switch pages by clicking on
+a tab in the navbar, only the view template needs to be changed. Furthermore
+you set a controller for each template. Basically a controller will define the 
+functions used on that portion of the page, for example, given a login form,
+define which values store username and password, and define the function
+which is used to do the actual logging in. Controllers modify with the 
+\texttt{\$scope} of a page. Then ``factories'' are for getting data, usually
+that is where you put all your \texttt{get} and  \texttt{put} requests. Or
+you can define a ``service'' which you might use for something you deem
+``service worthy''(??). Ideally you would keep out as much logic out of the
+controllers as possible and just modify variables, call functions from there.
+AngularJS is a lot to explain but you can learn the basics online, check out
+the examples on their homepage and watch a YouTube video or too. I will try
+to add a minimal example AngularJS app here when I have time.
+
+\section{Addendum}
+
+If you have any questions, or something I said is unclear, please let me know!
+Send me a direct message on Slack or post in the \#drylabtutorials channel.
+This assignment/tutorial is a WIP, I will try to do what I can with the time I 
+have. However, ideally, I would like you to go out into that realm of exploration
+known as the \textit{internet} and find out how to teach yourself that which
+you do not know. I cannot stress the importance of practice, practice, practice.
+Nor documentation! Always have a documentation tab open for whatever technology
+you are using, and always check out the documentation for a new module. Usually
+a modules repo readme runs over the basics. Have fun! By the end of this 
+assignment you will have developed a modern full stack web server tied to
+a novel database structure capable of performing the information flow of the
+central dogma.
 
 \end{document}
