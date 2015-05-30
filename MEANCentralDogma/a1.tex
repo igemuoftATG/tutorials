@@ -107,23 +107,44 @@ If you have any issues getting set up, Google is your friend.
 
 \section{Requirements}
 
-Your app must:
+\noindent Backend:
 \begin{itemize}
-    \item use a Python script to convert DNA $\rightarrow$ protein. You can a
-        Python script from your request handler with
-        \href{https://nodejs.org/api/child_process.html}{ChildProcess}.
-    \item use JavaScript to convert protein $\rightarrow$ DNA
-    \item define endpoints which can take in data from \texttt{req}, and send
-        back the converted data. Perhaps one endpoint which catches all
-        \texttt{get} requests and then internally sends it \textit{post}
-        endpoints which can accept params defining direction of conversion? It
-        is all up to you. I will be looking for originality, clarity, and
-    practicality.  
-    \item all converted sequences you have worked with should be stored as their
-        DNA, RNA, polypeptide sequence (plus anything else worthwhile!) in a MongoDB
-        database with Mongoose. Provide endpoints to retreive data from the database as
-        well. (just some \texttt{get}s) 
-    \item use unit testing with \href{http://mochajs.org/}{Mocha} 
+    \item have a POST endpoint which runs a child process Python script, using a
+        value from \texttt{req.body} as the argument for the Python script 
+
+    \item on script completion, store the DNA,AA (bonus: RNA too) in MongoDB.
+        For this you just need to define a mongoose model, and then make an
+        instance of it, and \texttt{.save(function(err,savedThing))} with it. If
+        you can't get MongoDB/mongoose installed on your machine, do everything
+        else. 
+
+    \item have a GET endpoint which returns the content of your DNA collection
+        from the DB 
+
+\end{itemize}
+
+\noindent Frontend:
+\begin{itemize}
+    \item use AngularJS
+    \item have an input box (probably better to use textarea) where the user can
+        paste in a DNA sequence
+
+    \item have a button beside the input box, when the user clicks the button it
+        should convert that DNA to AA *on the backend* (solutions which convert
+        DNA to AA on the frontend will not be accepted)
+    
+    \item have a button that says ``all results'' or similar and upon clickage
+        will fill the page with the contents of the DB (bonus: make a seperate
+        tab for this; see ngRouter or uiRouter) 
+
+\end{itemize}
+
+\noindent Bonus:
+\begin{itemize}
+    \item use unit testing with \href{http://mochajs.org/}{Mocha}
+    \item use server-side JavaScript to convert protein $\rightarrow$ DNA
+    \item run your DNA to AA converter over the entire \textit{E. Coli} genome,
+        storing each coding region in your database
 \end{itemize}
 
 \section{Boilerplates}
@@ -154,8 +175,8 @@ it's serverside engine, with Express as a framework for Node, using MongoDB for
 a database, and using the frontend framework AngularJS which eases the 
 difficulty of making single page applications. We will go through a quick intro
 to each of these members, but first an understanding of how a web application
-works must be acquired. 
-
+works must be acquired. I have written a complete MEAN stack tutorial here:
+\href{https://github.com/thejmazz/naivednageneration}{https://github.com/thejmazz/naivednageneration}
 
 \subsection{Static HTML}
 
@@ -327,7 +348,12 @@ you can define a ``service'' which you might use for something you deem
 controllers as possible and just modify variables, call functions from there.
 AngularJS is a lot to explain but you can learn the basics online, check out
 the examples on their homepage and watch a YouTube video or too. I will try
-to add a minimal example AngularJS app here when I have time.
+to add a minimal example AngularJS app here when I have time. \\
+
+\mpnote
+
+\noindent I have now completed an entire MEAN stack tutorial, see
+\href{https://github.com/thejmazz/naivednageneration}{https://github.com/thejmazz/naivednageneration}
 
 \section{Addendum}
 
