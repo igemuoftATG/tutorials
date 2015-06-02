@@ -1,0 +1,32 @@
+\input{tex/preamble}
+
+\begin{document}
+
+\section{Flux Balance Analysis Notes}
+
+\subsection{Dynamic flux balance analysis for synthetic microbial communities}
+
+\noindent \textit{Michael A. Henson, Timothy J. Hanly} \\
+
+\noindent DFBA $\rightarrow$ extension of FBA, allows dynamic effects of
+extracellular env. on microbial metabolism to be \textbf{predicted + optimized}. 
+key reqs.:
+\begin{itemize}
+    \item incorporation of individual species metabolic reconstructions
+    \item formation of extracellular mass balances
+    \item identification of substrate uptake kinetics
+    \item numerical solution of the coupled linear program/differential equations
+    \item model adaptation for common, suboptimal growth conditions and identified species interactions
+\end{itemize}
+
+\noindent FBA  $\rightarrow$ stoichiometric cell models representing biochemical rxns. in a metabolic network
+\begin{itemize}
+    \item list of metabolites (species)
+    \item list of relevant intracellular rxns.
+    \item stoichiometric coefficients for every species
+    \item[*] each intracellular metabolite is assumed to exhibit negligible
+        accumulation s.t. the fluxes producing the metabolites are balanced by
+        the fluxes consuming the metabolite
+\end{itemize}
+
+\end{document}
